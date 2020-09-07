@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(function(request) {
-    alert("got message")
     if (request.action == "getTags") {
-        message.innerText = request.tags;
+        var message = document.querySelector('#tags');
+        message.innerText = request.tags.join(", ");
     }
 });
 
@@ -14,8 +14,6 @@ function onWindowLoad() {
         // If you try and inject into an extensions page or the webstore/NTP you'll get an error
         if (chrome.runtime.lastError) {
             message.innerText = 'There was an error injecting script : \n' + chrome.runtime.lastError.message;
-        } else {
-            message.innerText = "Loading tags..."
         }
     });
 
