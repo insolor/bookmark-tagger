@@ -1,7 +1,7 @@
-chrome.runtime.onMessage.addListener(function(request, sender) {
+chrome.runtime.onMessage.addListener(function(request) {
     alert("got message")
     if (request.action == "getTags") {
-        message.innerText = request.source;
+        message.innerText = request.tags;
     }
 });
 
