@@ -1,5 +1,7 @@
 function getTags(document_root) {
-    return document_root.head.querySelector('meta[name="keywords"]').getAttribute("content").split(", ")
+    var tags = new Set([...document_root.body.querySelectorAll('a[rel="tag"]')].map(x => x.textContent.trim()))
+    alert([...tags])
+    return [...tags]
 }
 
 chrome.runtime.sendMessage({
